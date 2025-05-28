@@ -42,7 +42,7 @@ jobs:
           cd backend
           tox -e unit
 
-  build-images:
+  build-image:
     runs-on: ubuntu-22.04
     needs: [lint, unit-test]
     steps:
