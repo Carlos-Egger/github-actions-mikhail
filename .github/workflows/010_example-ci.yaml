@@ -70,7 +70,7 @@ jobs:
     needs: [build-image]
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: image
           path: /tmp
@@ -87,7 +87,7 @@ jobs:
     needs: [build-image]
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: image
           path: /tmp
@@ -103,7 +103,7 @@ jobs:
           output: 'trivy-results.json'
           severity: 'CRITICAHIGHL'
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trivy-results
           path: ${{ github.workspace }}/trivy-results.json
@@ -113,7 +113,7 @@ jobs:
     needs: [integration-test, vulnerability-scan]
     steps:
       - name: Download image
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: image
           path: /tmp
