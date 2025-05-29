@@ -50,7 +50,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Se up Docker Buildx
-        uses: docker/setup-buildx-actions@v3
+        uses: docker/setup-buildx-action@v3
 
       - name: Build and Export
         uses: docker/build-push-action@v5
