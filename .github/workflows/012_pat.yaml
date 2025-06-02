@@ -1,0 +1,23 @@
+name: 12 Pat Bum tags
+on:
+  pull_request:
+    types:
+      - closed
+    branchs:
+      - main
+
+jobs:
+  build:
+    if: ${{ github.event.pull_request.merged == true }} # Accessing the context for github
+    runs-on: ubuntu-22.04
+    steps: 
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.merge_commit_sha }}
+        fetch-depth: '0'
+
+    - name: Bump version and push tag 
+      uses: anothrNick/github-tag-actions@1.64.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+        WITH_V: true
