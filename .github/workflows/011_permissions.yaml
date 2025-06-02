@@ -21,4 +21,4 @@ jobs:
           git config --global user.email "test@mail.com"
           git add new-file.txt
           git commit -m "attempt to write"
-          git push origin ${{ github.ref }}
+          git push origin ${{ github.ref }}  
